@@ -14,7 +14,7 @@ public class ViewVendorsServlet extends HttpServlet {
 
         String jdbcURL = "jdbc:mysql://localhost:3306/shop";
         String dbUser = "root";
-        String dbPass = "M@ni7497";  // 🔁 Change this to your MySQL root password
+        String dbPass = "honey@3";  // 🔁 Change this to your MySQL root password
 
         out.println("<html><body>");
         out.println("<h2>Vendor Records</h2>");
