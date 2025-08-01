@@ -14,7 +14,7 @@ public class LoginServlet extends HttpServlet {
         // Dummy credentials check
         if(accno.equals("12345") && password.equals("pass123")) {
             HttpSession session = request.getSession();
-            session.setAttribute("name", "Manikumar");
+            session.setAttribute("name", "gayathri");
             session.setAttribute("balance", 5000);
 
             response.sendRedirect("balance");
