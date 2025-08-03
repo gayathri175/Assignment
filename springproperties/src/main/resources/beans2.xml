@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- Declare beans -->
+    <bean id="shoppingService" class="com.example.ShoppingService"/>
+    <bean id="loggingAspect" class="com.example.LoggingAspect"/>
+
+    <!-- Enable AOP config -->
+    <aop:config>
+        <aop:aspect ref="loggingAspect">
+
+            <!-- Before advice for all ShoppingService methods -->
+            <aop:before method="logBefore" pointcut="execution(* com.example.ShoppingService.*(..))"/>
+
+            <!-- After returning advice -->
+            <aop:after-returning method="logAfterReturning" pointcut="execution(* com.example.ShoppingService.*(..))"/>
+
+            <!-- After throwing advice -->
+            <aop:after-throwing method="logAfterThrowing" pointcut="execution(* com.example.ShoppingService.*(..))" throwing="ex"/>
+
+            <!-- Around advice -->
+            <aop:around method="logAround" pointcut="execution(* com.example.ShoppingService.*(..))"/>
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>

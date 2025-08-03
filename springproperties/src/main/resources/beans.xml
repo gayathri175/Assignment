@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+         http://www.springframework.org/schema/beans 
+         https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define Bank bean -->
+    <bean id="bank" class="com.example.Bank">
+        <constructor-arg value="101"/>               <!-- bankId -->
+        <constructor-arg value="Spring Bank"/>      <!-- bankName -->
+    </bean>
+
+    <!-- Define Account bean -->
+    <bean id="account" class="com.example.Account">
+        <constructor-arg value="12345"/>             <!-- accountNumber -->
+        <constructor-arg value="John Doe"/>          <!-- accountHolderName -->
+        <constructor-arg value="2500.75"/>            <!-- balance -->
+        <constructor-arg ref="bank"/>                 <!-- reference to Bank bean -->
+    </bean>
+
+</beans>
