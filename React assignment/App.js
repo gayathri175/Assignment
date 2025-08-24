@@ -1,6 +1,5 @@
-// Import React
-import React from "react";
-
+// Root component of our React project
+import React, { Component } from "react";
 // Import all components
 import GroceryList from "./GroceryList";
 import Car from "./Car";
@@ -16,113 +15,142 @@ import Fruits from "./Fruits";
 import TelevisionManager from "./Television";
 import MarriageForm from "./MarriageForm";
 import AccessoriesForm from "./AccessoriesForm";
+import BakingItemsForm from "./Baking";
+import {
+  FlightBookingControlled,
+  FlightBookingUncontrolled,
+} from "./FlightBooking";
 
-// App component =entry point of our react project
-function App() {
-  // Data for juice items
-  const juiceItems = [
-    { id: 1, name: "Orange Juice", price: 50 },
-    { id: 2, name: "Mango Juice", price: 60 },
-    { id: 3, name: "Apple Juice", price: 70 },
-  ];
+//  Import MovieForm component
+import MovieForm from "./MovieForm";
 
-  return (
-    <div className="container">
-      {/* Heading */}
-      <h1 className="text-center my-4">My React Components Showcase</h1>
+class App extends Component {
+  render() {
+    // Data for juice items
+    const juiceItems = [
+      { id: 1, name: "Orange Juice", price: 50 },
+      { id: 2, name: "Mango Juice", price: 60 },
+      { id: 3, name: "Apple Juice", price: 70 },
+    ];
 
-      {/* Grocery List */}
-      <section className="mb-5">
-        <GroceryList items={["Milk", "Bread", "Eggs", "Butter"]} />
-      </section>
+    return (
+      <div className="container">
+        <h1 className="text-center my-4">My React Components Showcase</h1>
 
-      {/* Car Component */}
-      <section className="mb-5">
-        <Car brand="Toyota" model="Corolla" color="Blue" year="2022" />
-      </section>
+        {/* Grocery List */}
+        <section className="mb-5">
+          <GroceryList items={["Milk", "Bread", "Eggs", "Butter"]} />
+        </section>
 
-      {/* Phone Component */}
-      <section className="mb-5">
-        <Phone brand="Apple" model="iPhone 14" price="90000" />
-      </section>
+        {/* Car */}
+        <section className="mb-5">
+          <Car brand="Toyota" model="Corolla" color="Blue" year="2022" />
+        </section>
 
-      {/* Sweets List */}
-      <section className="mb-5">
-        <SweetsList sweets={["Laddu", "Jalebi", "Kaju Katli", "Rasgulla"]} />
-      </section>
+        {/* Phone */}
+        <section className="mb-5">
+          <Phone brand="Apple" model="iPhone 14" price="90000" />
+        </section>
 
-      {/* Electronics Component */}
-      <section className="mb-5">
-        <Electronics />
-      </section>
+        {/* Sweets */}
+        <section className="mb-5">
+          <SweetsList sweets={["Laddu", "Jalebi", "Kaju Katli", "Rasgulla"]} />
+        </section>
 
-      {/* Canteen Menu */}
-      <section className="mb-5">
-        <CanteenMenu />
-      </section>
+        {/* Electronics */}
+        <section className="mb-5">
+          <Electronics />
+        </section>
 
-      {/* Juice Table */}
-      <section className="mb-5">
-        <h2>Juice Menu</h2>
-        <table className="table table-bordered table-striped">
-          <thead className="table-primary">
-            <tr>
-              <th>ID</th>
-              <th>Juice Name</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {juiceItems.map((juice) => (
-              <Juice
-                key={juice.id}
-                id={juice.id}
-                name={juice.name}
-                price={juice.price}
-              />
-            ))}
-          </tbody>
-        </table>
-      </section>
+        {/* Canteen */}
+        <section className="mb-5">
+          <CanteenMenu />
+        </section>
 
-      {/* Restaurant Menu */}
-      <section className="mb-5">
-        <Restaurant />
-      </section>
+        {/* Juice */}
+        <section className="mb-5">
+          <h2>Juice Menu</h2>
+          <table className="table table-bordered table-striped">
+            <thead className="table-primary">
+              <tr>
+                <th>ID</th>
+                <th>Juice Name</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {juiceItems.map((juice) => (
+                <Juice
+                  key={juice.id}
+                  id={juice.id}
+                  name={juice.name}
+                  price={juice.price}
+                />
+              ))}
+            </tbody>
+          </table>
+        </section>
 
-      {/* Temple List */}
-      <section className="mb-5">
-        <TempleList />
-      </section>
+        {/* Restaurant */}
+        <section className="mb-5">
+          <Restaurant />
+        </section>
 
-      {/* Tailor Shop */}
-      <section className="mb-5">
-        <TailorShop />
-      </section>
+        {/* Temple */}
+        <section className="mb-5">
+          <TempleList />
+        </section>
 
-      {/* Fruits Component */}
-      <section className="mb-5">
-        <Fruits />
-      </section>
+        {/* Tailor */}
+        <section className="mb-5">
+          <TailorShop />
+        </section>
 
-      {/* Television Manager */}
-      <section className="mb-5">
-        <TelevisionManager />
-      </section>
+        {/* Fruits */}
+        <section className="mb-5">
+          <Fruits />
+        </section>
 
-      {/* Marriage Form */}
-      <section className="mb-5">
-        <MarriageForm />
-      </section>
+        {/* TV */}
+        <section className="mb-5">
+          <TelevisionManager />
+        </section>
 
-      {/* Accessories Form (NEWLY ADDED) */}
-      <section className="mb-5">
-        <h2 className="text-center text-primary"></h2>
-        <AccessoriesForm />
-      </section>
-    </div>
-  );
+        {/* Marriage Form */}
+        <section className="mb-5">
+          <MarriageForm />
+        </section>
+
+        {/* Accessories Form */}
+        <section className="mb-5">
+          <AccessoriesForm />
+        </section>
+
+        {/* Baking Items Form */}
+        <section className="mb-5">
+          <BakingItemsForm />
+        </section>
+
+        {/* Flight Booking Controlled & Uncontrolled Forms */}
+        <section className="mb-5 row">
+          <div className="col-md-6">
+            {/* Controlled Form */}
+            <FlightBookingControlled />
+          </div>
+          <div className="col-md-6">
+            {/* Uncontrolled Form */}
+            <FlightBookingUncontrolled />
+          </div>
+        </section>
+
+        {/*  Movie Form Section */}
+        <section className="mb-5">
+          <h2 className="mb-4"> Movie Collection Form</h2>
+          <MovieForm />
+        </section>
+      </div>
+    );
+  }
 }
 
-// Export App so index.js can render it
 export default App;
